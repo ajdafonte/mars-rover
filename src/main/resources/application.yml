@@ -1,0 +1,8 @@
+# ports
+server:
+  port: 8080
+
+# logging settings
+logging:
+  level:
+    pt.caires: DEBUG
