@@ -32,7 +32,7 @@ public class DefaultMessageService implements MessageService
     public MRMessage getMessage(final long messageId)
     {
         return messageRepository.findById(messageId).orElseThrow(() -> new MarsRoverApiException(MarsRoverApiError.UNKNOWN_RESOURCE,
-            "Message was not found."));
+            "Message item was not found."));
     }
 
     @Override

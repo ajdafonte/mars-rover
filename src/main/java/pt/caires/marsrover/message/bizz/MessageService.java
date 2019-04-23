@@ -9,20 +9,26 @@ import pt.caires.marsrover.message.domain.MRMessage;
 public interface MessageService
 {
     /**
-     * @return
+     * Returns a collection of messages sent by the Mars Rover.
+     *
+     * @return a list of messages.
      */
     List<MRMessage> getMessages();
 
     /**
-     * @param messageId
-     * @return
-     * @throws MarsRoverApiException
+     * Return a message item sent by the Mars Rover.
+     *
+     * @param messageId the id of the message.
+     * @return a message item.
+     * @throws MarsRoverApiException if no message with the given id was found.
      */
     MRMessage getMessage(long messageId);
 
     /**
-     * @param parameter
-     * @return
+     * Creates a new message item.
+     *
+     * @param parameter object that contains all the input parameters provided to create a new message.
+     * @return new message.
      */
     MRMessage createMessage(CreateMessageParameter parameter);
 }

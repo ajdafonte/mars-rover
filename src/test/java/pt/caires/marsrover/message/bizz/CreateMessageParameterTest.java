@@ -2,6 +2,10 @@ package pt.caires.marsrover.message.bizz;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static pt.caires.marsrover.message.MessageTestHelper.MOCK_DIALECT1;
+import static pt.caires.marsrover.message.MessageTestHelper.MOCK_DIALECT2;
+import static pt.caires.marsrover.message.MessageTestHelper.MOCK_TEXT1;
+import static pt.caires.marsrover.message.MessageTestHelper.MOCK_TEXT2;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,9 +20,9 @@ class CreateMessageParameterTest
     {
         // given
         final CreateMessageParameter mockCreateMessageParameter1 =
-            MessageTestHelper.generateCreateMessageParameter(MessageTestHelper.MOCK_TEXT1, MessageTestHelper.MOCK_DIALECT1);
+            MessageTestHelper.generateCreateMessageParameter(MOCK_TEXT1, MOCK_DIALECT1);
         final CreateMessageParameter mockCreateMessageParameter2 =
-            MessageTestHelper.generateCreateMessageParameter(MessageTestHelper.MOCK_TEXT1, MessageTestHelper.MOCK_DIALECT1);
+            MessageTestHelper.generateCreateMessageParameter(MOCK_TEXT1, MOCK_DIALECT1);
 
         // when + then
         assertEquals(mockCreateMessageParameter1.hashCode(), mockCreateMessageParameter2.hashCode());
@@ -31,9 +35,9 @@ class CreateMessageParameterTest
     {
         // given
         final CreateMessageParameter mockCreateMessageParameter1 =
-            MessageTestHelper.generateCreateMessageParameter(MessageTestHelper.MOCK_TEXT1, MessageTestHelper.MOCK_DIALECT1);
+            MessageTestHelper.generateCreateMessageParameter(MOCK_TEXT1, MOCK_DIALECT1);
         final CreateMessageParameter mockCreateMessageParameter2 =
-            MessageTestHelper.generateCreateMessageParameter(MessageTestHelper.MOCK_TEXT2, MessageTestHelper.MOCK_DIALECT2);
+            MessageTestHelper.generateCreateMessageParameter(MOCK_TEXT2, MOCK_DIALECT2);
 
         // when + then
         assertNotEquals(mockCreateMessageParameter1.hashCode(), mockCreateMessageParameter2.hashCode());
@@ -46,7 +50,7 @@ class CreateMessageParameterTest
     {
         // given
         final CreateMessageParameter mockCreateMessageParameter =
-            MessageTestHelper.generateCreateMessageParameter(MessageTestHelper.MOCK_TEXT1, MessageTestHelper.MOCK_DIALECT1);
+            MessageTestHelper.generateCreateMessageParameter(MOCK_TEXT1, MOCK_DIALECT1);
         final String expected = "CreateMessageParameter(" +
             "text=" + mockCreateMessageParameter.getText() +
             ", dialect=" + mockCreateMessageParameter.getDialect() +
@@ -57,6 +61,5 @@ class CreateMessageParameterTest
 
         // then
         assertEquals(expected, result);
-
     }
 }

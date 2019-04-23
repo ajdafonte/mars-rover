@@ -12,7 +12,7 @@ public class MessageTestHelper
     public static final long MOCK_ID1 = 1L;
     public static final long MOCK_ID2 = 2L;
     public static final long MOCK_UNKNOWN_ID = 10000L;
-    public static final String MOCK_TEXT1 = "To infinity… and beyond!";
+    public static final String MOCK_TEXT1 = "To infinity... and beyond!";
     public static final String MOCK_TEXT2 = "Reach for the sky!";
     public static final String MOCK_INVALID_TEXT = "";
     public static final MRDialect MOCK_DIALECT1 = MRDialect.JAMAICA;

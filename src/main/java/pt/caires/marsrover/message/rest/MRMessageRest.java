@@ -19,7 +19,7 @@ public class MRMessageRest
     @ApiModelProperty(value = "The ID of the message.", readOnly = true)
     private final long id;
 
-    @ApiModelProperty(value = "The text of the movement.")
+    @ApiModelProperty(value = "The text of the message.")
     private final String text;
 
     @ApiModelProperty(value = "The dialect by which the message will be transmitted.")

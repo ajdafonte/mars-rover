@@ -53,7 +53,7 @@ public class MessageRestController
         LOG.info(">> Request received in order to retrieve all the messages sent by the Mars Rover.");
         return messageService.getMessages()
             .stream()
-            .map(MessageRestMapper::makeMRMessageRest)
+            .map(MessageRestMapper::makeMessageRest)
             .collect(Collectors.toList());
     }
 
@@ -66,7 +66,7 @@ public class MessageRestController
                                     @ApiParam(value = "The ID of the message.", required = true) final long messageId)
     {
         LOG.info(">> Request received in order to retrieve a message sent by the Mars Rover specified by the ID: {}", messageId);
-        return MessageRestMapper.makeMRMessageRest(messageService.getMessage(messageId));
+        return MessageRestMapper.makeMessageRest(messageService.getMessage(messageId));
     }
 
     @PostMapping
@@ -81,7 +81,7 @@ public class MessageRestController
                                        @Valid final CreateMessageRequestBody requestBody)
     {
         LOG.info(">> Request received in order to create a new message so that Mars Rover can transmit it.");
-        return MessageRestMapper.makeMRMessageRest(
+        return MessageRestMapper.makeMessageRest(
             messageService.createMessage(MessageRestMapper.makeCreateMessageParameter(requestBody)));
     }
 }

@@ -27,7 +27,7 @@ class MessageRestMapperTest
         final MRMessageRest expectedMessageRest = MessageTestHelper.generateMessageRest(mockMessage.getId(), MOCK_TEXT1, MOCK_DIALECT1);
 
         // when
-        final MRMessageRest result = MessageRestMapper.makeMRMessageRest(mockMessage);
+        final MRMessageRest result = MessageRestMapper.makeMessageRest(mockMessage);
 
         // then
         assertNotNull(result);
@@ -41,7 +41,7 @@ class MessageRestMapperTest
     void givenNullMessage_whenMapToRest_thenReturnNullValue()
     {
         // given + when + then
-        assertNull(MessageRestMapper.makeMRMessageRest(null));
+        assertNull(MessageRestMapper.makeMessageRest(null));
     }
 
     // map createmessageparameter - ok

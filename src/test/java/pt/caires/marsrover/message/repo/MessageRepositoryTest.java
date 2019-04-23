@@ -44,9 +44,9 @@ class MessageRepositoryTest
         assertThat(result, hasSize(0));
     }
 
-    // find all - existent movements
+    // find all - existent messages
     @Test
-    void givenExistentMessages_whenFindAll_thenReturnMessagesCollection()
+    void givenExistentMessages_whenFindAll_thenReturnMessageCollection()
     {
         // given
         final MRMessage mockMessage1 = MessageTestHelper.generateMessage(MOCK_TEXT1, MOCK_DIALECT1);
@@ -81,7 +81,7 @@ class MessageRepositoryTest
 
     // find by - not found
     @Test
-    void givenUnknownMessageId_whenFindById_thenEmptyValue()
+    void givenUnknownMessageId_whenFindById_thenReturnEmptyValue()
     {
         // given
         final MRMessage mockMessage1 = MessageTestHelper.generateMessage(MOCK_TEXT1, MOCK_DIALECT1);
@@ -97,7 +97,7 @@ class MessageRepositoryTest
 
     // save
     @Test
-    void givenMessage_whenSave_thenReturnSavedMessage()
+    void givenMessage_whenSaveMessage_thenReturnSavedMessage()
     {
         // given
         final MRMessage mockMessage1 = MessageTestHelper.generateMessage(MOCK_TEXT1, MOCK_DIALECT1);

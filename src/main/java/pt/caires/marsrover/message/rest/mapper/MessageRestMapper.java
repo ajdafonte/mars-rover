@@ -6,9 +6,6 @@ import pt.caires.marsrover.message.rest.CreateMessageRequestBody;
 import pt.caires.marsrover.message.rest.MRMessageRest;
 
 
-/**
- *
- */
 public class MessageRestMapper
 {
     public static CreateMessageParameter makeCreateMessageParameter(final CreateMessageRequestBody requestBody)
@@ -20,7 +17,7 @@ public class MessageRestMapper
         return null;
     }
 
-    public static MRMessageRest makeMRMessageRest(final MRMessage mrMessage)
+    public static MRMessageRest makeMessageRest(final MRMessage mrMessage)
     {
         if (mrMessage != null)
         {

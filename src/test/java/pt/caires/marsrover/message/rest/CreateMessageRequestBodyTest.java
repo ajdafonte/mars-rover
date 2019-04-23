@@ -2,6 +2,10 @@ package pt.caires.marsrover.message.rest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static pt.caires.marsrover.message.MessageTestHelper.MOCK_DIALECT1;
+import static pt.caires.marsrover.message.MessageTestHelper.MOCK_DIALECT2;
+import static pt.caires.marsrover.message.MessageTestHelper.MOCK_TEXT1;
+import static pt.caires.marsrover.message.MessageTestHelper.MOCK_TEXT2;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,9 +20,9 @@ class CreateMessageRequestBodyTest
     {
         // given
         final CreateMessageRequestBody mockCreateMessageRequestBody1 =
-            MessageTestHelper.generateCreateMessageRequestBody(MessageTestHelper.MOCK_TEXT1, MessageTestHelper.MOCK_DIALECT1);
+            MessageTestHelper.generateCreateMessageRequestBody(MOCK_TEXT1, MOCK_DIALECT1);
         final CreateMessageRequestBody mockCreateMessageRequestBody2 =
-            MessageTestHelper.generateCreateMessageRequestBody(MessageTestHelper.MOCK_TEXT1, MessageTestHelper.MOCK_DIALECT1);
+            MessageTestHelper.generateCreateMessageRequestBody(MOCK_TEXT1, MOCK_DIALECT1);
 
         // when + then
         assertEquals(mockCreateMessageRequestBody1.hashCode(), mockCreateMessageRequestBody2.hashCode());
@@ -31,9 +35,9 @@ class CreateMessageRequestBodyTest
     {
         // given
         final CreateMessageRequestBody mockCreateMessageRequestBody1 =
-            MessageTestHelper.generateCreateMessageRequestBody(MessageTestHelper.MOCK_TEXT1, MessageTestHelper.MOCK_DIALECT1);
+            MessageTestHelper.generateCreateMessageRequestBody(MOCK_TEXT1, MOCK_DIALECT1);
         final CreateMessageRequestBody mockCreateMessageRequestBody2 =
-            MessageTestHelper.generateCreateMessageRequestBody(MessageTestHelper.MOCK_TEXT2, MessageTestHelper.MOCK_DIALECT2);
+            MessageTestHelper.generateCreateMessageRequestBody(MOCK_TEXT2, MOCK_DIALECT2);
 
         // when + then
         assertNotEquals(mockCreateMessageRequestBody1.hashCode(), mockCreateMessageRequestBody2.hashCode());
@@ -46,7 +50,7 @@ class CreateMessageRequestBodyTest
     {
         // given
         final CreateMessageRequestBody mockCreateMessageRequestBody =
-            MessageTestHelper.generateCreateMessageRequestBody(MessageTestHelper.MOCK_TEXT1, MessageTestHelper.MOCK_DIALECT1);
+            MessageTestHelper.generateCreateMessageRequestBody(MOCK_TEXT1, MOCK_DIALECT1);
         final String expected = "CreateMessageRequestBody(" +
             "text=" + mockCreateMessageRequestBody.getText() +
             ", dialect=" + mockCreateMessageRequestBody.getDialect() +
@@ -57,6 +61,5 @@ class CreateMessageRequestBodyTest
 
         // then
         assertEquals(expected, result);
-
     }
 }

@@ -16,7 +16,7 @@ class MRMessageTest
 {
     // equals nok
     @Test
-    void givenTwoMessages_whenCheckIfEquals_thenBothGeoMessagesMustNotBeEquals()
+    void givenTwoMessages_whenCheckIfEquals_thenBothMessagesMustNotBeEquals()
     {
         // given
         final MRMessage mockMessage1 = MessageTestHelper.generateMessage(MOCK_TEXT1, MOCK_DIALECT1);
