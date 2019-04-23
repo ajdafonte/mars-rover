@@ -8,11 +8,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class MarsRoverApplicationTests
+class MarsRoverApplicationTests
 {
 
     @Test
-    public void contextLoads()
+    void contextLoads()
     {
     }
 

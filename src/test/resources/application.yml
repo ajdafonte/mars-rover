@@ -1,0 +1,4 @@
+# app specific configs
+marsrover:
+  multimediaConfig:
+    titlePrefix: "mars-media-test"

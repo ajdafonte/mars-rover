@@ -58,7 +58,8 @@ Here's a short summary of the tech stack used in the development of this compone
 In file `application.yml` some properties were defined that allows to:
  - Define component listening port - `server.port`
  - Define logging level - `logging.level`
- - Define multimedia configuration - `marsrovers.multimediaConfig`  
+ - Define multimedia configuration - `marsrovers.multimediaConfig` 
+    - `titlePrefix` - prefix title of the multimedia item
 
 ### Component Functionality
 
@@ -88,6 +89,18 @@ With these endpoints is possible to manage the movements of the Mars Rover.
     - Constraints: Available dialects (UK, USA, JAMAICA; AUSTRALIA)
 
 With this endpoints is possible access/transmit messages of/for the Mars Rover.
+
+#### Multimedia
+
+- `GET /multimedia` - Retrieve all the multimedia items made by the Mars Rover.
+- `POST /multimedia` - Create a new multimedia item in the Mars Rover.
+    - Input data: the multimedia type to be created.
+    - Constraints: Available multimedia type (VIDEO, PHOTO)
+- `PATCH /multimedia/{id}` - Update the title of a multimedia item in the Mars Rover specified by the ID.
+    - Input data: the new multimedia title.
+- `DELETE /multimedia/{id}` - Delete a multimedia item in the Mars Rover specified by the ID.
+
+With this endpoints is possible to manage multimedia items in the Mars Rover.
 
 
 ### Additional Remarks

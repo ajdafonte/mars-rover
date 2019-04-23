@@ -6,15 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 
 import pt.caires.marsrover.common.error.MarsRoverApiError;
 import pt.caires.marsrover.common.error.MarsRoverApiException;
@@ -45,30 +42,30 @@ public class RestControllerErrorHandler
     {
         return new MarsRoverApiErrorRest(request, MarsRoverApiError.INTERNAL_SERVER_ERROR);
     }
-
-    /**
-     * Thrown when the RequestBody can't be parsed. Either due to malformed JSON or invalid field types.
-     */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    @ResponseBody
-    MarsRoverApiErrorRest handleHttpMessageNotReadableException(final HttpServletRequest request, final HttpMessageNotReadableException exception)
-    {
-        if (exception.getCause() instanceof InvalidFormatException)
-        {
-            return new MarsRoverApiErrorRest(
-                request,
-                MarsRoverApiError.INVALID_REQUEST_PARAMETER,
-                ((InvalidFormatException) exception.getCause()).getPath().get(0).getFieldName());
-        }
-        else
-        {
-            final String errorDescription = isMissingBodyException(exception) ? REQUEST_BODY_MISSING : "";
-            return new MarsRoverApiErrorRest(request,
-                MarsRoverApiError.INVALID_REQUEST_BODY,
-                errorDescription);
-        }
-    }
+//
+//    /**
+//     * Thrown when the RequestBody can't be parsed. Either due to malformed JSON or invalid field types.
+//     */
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    @ExceptionHandler(HttpMessageNotReadableException.class)
+//    @ResponseBody
+//    MarsRoverApiErrorRest handleHttpMessageNotReadableException(final HttpServletRequest request, final HttpMessageNotReadableException exception)
+//    {
+//        if (exception.getCause() instanceof InvalidFormatException)
+//        {
+//            return new MarsRoverApiErrorRest(
+//                request,
+//                MarsRoverApiError.INVALID_REQUEST_PARAMETER,
+//                ((InvalidFormatException) exception.getCause()).getPath().get(0).getFieldName());
+//        }
+//        else
+//        {
+//            final String errorDescription = isMissingBodyException(exception) ? REQUEST_BODY_MISSING : "";
+//            return new MarsRoverApiErrorRest(request,
+//                MarsRoverApiError.INVALID_REQUEST_BODY,
+//                errorDescription);
+//        }
+//    }
 
     /**
      * Thrown when an argument validation fails.
@@ -100,8 +97,8 @@ public class RestControllerErrorHandler
         return new MarsRoverApiErrorRest(request, MarsRoverApiError.INVALID_REQUEST_PARAMETER, ex.getName());
     }
 
-    private boolean isMissingBodyException(final HttpMessageNotReadableException exception)
-    {
-        return exception.getMessage() != null && exception.getMessage().contains(REQUEST_BODY_MISSING);
-    }
+//    private boolean isMissingBodyException(final HttpMessageNotReadableException exception)
+//    {
+//        return exception.getMessage() != null && exception.getMessage().contains(REQUEST_BODY_MISSING);
+//    }
 }
