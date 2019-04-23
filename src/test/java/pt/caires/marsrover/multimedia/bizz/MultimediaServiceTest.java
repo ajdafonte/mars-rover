@@ -57,7 +57,7 @@ class MultimediaServiceTest
 
     // get multimedia - with data
     @Test
-    void givenExistentMultimedia_whenGetMultimedia_thenReturnAllMultimedia()
+    void givenExistentMultimedia_whenGetMultimediaItems_thenReturnAllMultimediaCollection()
     {
         // given
         final MRMultimedia mockMultimedia1 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
@@ -79,7 +79,7 @@ class MultimediaServiceTest
 
     // get multimedia - with no data
     @Test
-    void givenNoMultimedia_whenGetMultimedia_thenReturnEmptyCollection()
+    void givenNoMultimedia_whenGetMultimediaItems_thenReturnEmptyCollection()
     {
         // given
         when(multimediaRepository.findAll()).thenReturn(Collections.emptyList());
@@ -96,7 +96,7 @@ class MultimediaServiceTest
 
     // create multimedia - ok
     @Test
-    void givenValidParameter_whenCreateMultimedia_thenReturnMultimediaCreated()
+    void givenValidParameter_whenCreateMultimediaItem_thenReturnCreatedMultimediaItem()
     {
         // given
         final CreateMultimediaParameter mockParameter = MultimediaTestHelper.generateCreateMultimediaParameter(MOCK_TYPE_PHOTO);
@@ -117,7 +117,7 @@ class MultimediaServiceTest
 
     // updateTile - ok
     @Test
-    void givenValidParameters_whenUpdateMultimediaTitle_thenReturnUpdatedMultimedia()
+    void givenValidParameters_whenUpdateMultimediaTitle_thenReturnUpdatedMultimediaItem()
     {
         // given
         final long mockMultimediaId = MOCK_ID1;
@@ -162,7 +162,7 @@ class MultimediaServiceTest
 
     // delete - ok
     @Test
-    void givenValidParameters_whenDeleteMultimedia_thenExpectMultimediaDeletion()
+    void givenValidParameters_whenDeleteMultimediaItem_thenExpectMultimediaItemDeletion()
     {
         // given
         final long mockMultimediaId = MOCK_ID1;
@@ -181,7 +181,7 @@ class MultimediaServiceTest
 
     // delete - nok (multimedia id not found)
     @Test
-    void givenUnknownMultimediaId_whenMultimediaCar_thenThrowSpecificException()
+    void givenUnknownMultimediaId_whenMultimediaItem_thenThrowSpecificException()
     {
         // given
         final long mockMultimediaId = MOCK_UNKNOWN_ID;

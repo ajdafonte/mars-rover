@@ -70,7 +70,7 @@ public class MultimediaRestController
                                              @ApiParam(value = "Request body parameter to create a new multimedia item.", required = true)
                                              @Valid final CreateMultimediaRequestBody requestBody)
     {
-        LOG.info(">> Request received in order to create a new multimedia in the Mars Rover.");
+        LOG.info(">> Request received in order to create a new multimedia item in the Mars Rover.");
         return MultimediaRestMapper.makeMultimediaRest(
             multimediaService.createMultimedia(MultimediaRestMapper.makeCreateMultimediaParameter(requestBody)));
     }
@@ -86,7 +86,7 @@ public class MultimediaRestController
                                                   @ApiParam(value = "Request body parameter to update a multimedia item.", required = true)
                                                   @Valid final UpdateMultimediaRequestBody requestBody)
     {
-        LOG.info(">> Request received in order to update the title of a multimedia item.");
+        LOG.info(">> Request received in order to update the title of a multimedia item specified by the ID: {}", multimediaId);
         return MultimediaRestMapper.makeMultimediaRest(
             multimediaService.updateMultimediaTitle(MultimediaRestMapper.makeUpdateMultimediaParameter(multimediaId, requestBody)));
     }
@@ -100,7 +100,7 @@ public class MultimediaRestController
     public void deleteMultimedia(@PathVariable
                                  @ApiParam(value = "The ID of the multimedia.", required = true) final long multimediaId)
     {
-        LOG.info(">> Request received in order to delete a multimedia item.");
+        LOG.info(">> Request received in order to delete a multimedia item specified by the ID: {}", multimediaId);
         multimediaService.deleteMultimedia(multimediaId);
     }
 }

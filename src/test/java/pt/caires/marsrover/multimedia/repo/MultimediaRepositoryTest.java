@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static pt.caires.marsrover.multimedia.MultimediaTestHelper.MOCK_TITLE1;
 import static pt.caires.marsrover.multimedia.MultimediaTestHelper.MOCK_TITLE2;
 import static pt.caires.marsrover.multimedia.MultimediaTestHelper.MOCK_TYPE_PHOTO;
+import static pt.caires.marsrover.multimedia.MultimediaTestHelper.MOCK_TYPE_VIDEO;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +35,7 @@ class MultimediaRepositoryTest
 
     // find all - empty repo
     @Test
-    void givenEmptyMultimedia_whenFindAll_thenReturnEmptyCollection()
+    void givenEmptyMultimediaItems_whenFindAll_thenReturnEmptyCollection()
     {
         // given
 
@@ -48,11 +49,11 @@ class MultimediaRepositoryTest
 
     // find all - existent multimedia
     @Test
-    void givenExistentMultimedia_whenFindAll_thenReturnMultimediaCollection()
+    void givenExistentMultimediaItems_whenFindAll_thenReturnMultimediaCollection()
     {
         // given
         final MRMultimedia mockMultimedia1 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
-        final MRMultimedia mockMultimedia2 = MultimediaTestHelper.generateMultimedia(MRMultimediaType.VIDEO, MOCK_TITLE2);
+        final MRMultimedia mockMultimedia2 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_VIDEO, MOCK_TITLE2);
         multimediaRepository.save(mockMultimedia1);
         multimediaRepository.save(mockMultimedia2);
 
@@ -67,7 +68,7 @@ class MultimediaRepositoryTest
 
     // find by - ok
     @Test
-    void givenExistentMultimediaId_whenFindById_thenReturnExpectedMultimedia()
+    void givenExistentMultimediaId_whenFindById_thenReturnExpectedMultimediaItem()
     {
         // given
         final MRMultimedia mockMultimedia1 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
@@ -83,7 +84,7 @@ class MultimediaRepositoryTest
 
     // find by - not found
     @Test
-    void givenUnknownMultimediaId_whenFindById_thenEmptyValue()
+    void givenUnknownMultimediaId_whenFindById_thenReturnEmptyValue()
     {
         // given
         final MRMultimedia mockMultimedia1 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
@@ -99,7 +100,7 @@ class MultimediaRepositoryTest
 
     // save (new item)
     @Test
-    void givenMultimedia_whenSaveNewItem_thenReturnSavedMultimedia()
+    void givenMultimedia_whenSaveNewItem_thenReturnSavedMultimediaItem()
     {
         // given
         final MRMultimedia mockMultimedia1 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
@@ -115,7 +116,7 @@ class MultimediaRepositoryTest
 
     // save (existent item)
     @Test
-    void givenMultimedia_whenSaveExistentItem_thenReturnUpdatedMultimedia()
+    void givenMultimedia_whenSaveExistentItem_thenReturnUpdatedMultimediaItem()
     {
         // given
         final MRMultimedia mockMultimedia = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
@@ -134,7 +135,7 @@ class MultimediaRepositoryTest
 
     // delete - ok
     @Test
-    void givenExistentMultimedia_whenDeleteItem_thenReturnTrue()
+    void givenExistentMultimediaItem_whenDeleteItem_thenReturnTrue()
     {
         // given
         final MRMultimedia mockMultimedia1 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
@@ -152,7 +153,7 @@ class MultimediaRepositoryTest
 
     // delete - nok
     @Test
-    void givenUnknownMultimedia_whenDeleteItem_thenReturnFalse()
+    void givenUnknownMultimediaItem_whenDeleteItem_thenReturnFalse()
     {
         // given
         final MRMultimedia mockMultimedia1 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);

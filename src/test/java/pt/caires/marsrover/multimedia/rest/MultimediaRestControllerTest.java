@@ -55,7 +55,6 @@ class MultimediaRestControllerTest
     private static final String MULTIMEDIA_BY_ID_URI = "/v1/multimedia/{multimediaId}";
 
     private static final String INVALID_REQUEST = "Invalid request";
-    private static final String INVALID_REQUEST_PARAMETER = "Invalid request parameter";
     private static final String RESOURCE_NOT_FOUND = "Resource not found";
 
     @Autowired
@@ -66,7 +65,7 @@ class MultimediaRestControllerTest
 
     // get multimedia - with data
     @Test
-    void givenExistentMultimedia_whenGetMultimediaCollection_thenReturnAllMultimedia() throws Exception
+    void givenExistentMultimediaItems_whenGetMultimediaCollection_thenReturnAllMultimediaItems() throws Exception
     {
         // given
         final MRMultimedia mockMultimedia1 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
@@ -95,7 +94,7 @@ class MultimediaRestControllerTest
 
     // get multimedia - with no data
     @Test
-    void givenEmptyMultimedia_whenGetMultimediaCollection_thenReturnEmptyResult() throws Exception
+    void givenEmptyMultimediaItems_whenGetMultimediaCollection_thenReturnEmptyResult() throws Exception
     {
         // given
         final List emptyList = Collections.emptyList();
@@ -115,7 +114,7 @@ class MultimediaRestControllerTest
 
     // create multimedia - ok
     @Test
-    void givenValidRequest_whenCreateMultimedia_thenReturnNewMultimedia() throws Exception
+    void givenValidRequest_whenCreateMultimediaItem_thenReturnNewMultimediaItem() throws Exception
     {
         // given
         final MRMultimedia mockMultimedia = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
@@ -141,7 +140,7 @@ class MultimediaRestControllerTest
 
     // create multimedia - no body
     @Test
-    void givenNullRequestBody_whenCreateMultimedia_thenReturnBadRequest() throws Exception
+    void givenNullRequestBody_whenCreateMultimediaItem_thenReturnBadRequest() throws Exception
     {
         // given
         final String requestBody = "{}";
@@ -159,7 +158,7 @@ class MultimediaRestControllerTest
 
     // create multimedia - invalid body
     @Test
-    void givenIncompleteRequestBody_whenCreateMultimedia_thenReturnBadRequest() throws Exception
+    void givenIncompleteRequestBody_whenCreateMultimediaItem_thenReturnBadRequest() throws Exception
     {
         // given
         final CreateMultimediaRequestBody mockRequestBody = MultimediaTestHelper.generateCreateMultimediaRequestBody(null);
@@ -178,7 +177,7 @@ class MultimediaRestControllerTest
 
     // update multimedia title - ok
     @Test
-    void givenValidRequest_whenUpdateMultimediaTitle_thenReturnUpdatedMultimedia() throws Exception
+    void givenValidRequest_whenUpdateMultimediaTitle_thenReturnUpdatedMultimediaItem() throws Exception
     {
         // given
         final String mockNewTitle = MOCK_TITLE2;
@@ -270,7 +269,7 @@ class MultimediaRestControllerTest
 
     // delete multimedia - ok
     @Test
-    void givenValidRequest_whenDeleteMultimedia_thenReturnNoContent() throws Exception
+    void givenValidRequest_whenDeleteMultimediaItem_thenReturnNoContentAndDeleteMultimediaItem() throws Exception
     {
         // given
         final long mockMultimediaIdToDelete = MOCK_ID1;
@@ -289,7 +288,7 @@ class MultimediaRestControllerTest
 
     // delete multimedia - nok (multimedia id not found)
     @Test
-    void givenRequestWithUnknownMultimediaId_whenDeleteMultimedia_thenReturnNotFound() throws Exception
+    void givenRequestWithUnknownMultimediaId_whenDeleteMultimediaItem_thenReturnNotFound() throws Exception
     {
         // given
         final long mockMultimediaIdToDelete = MOCK_UNKNOWN_ID;

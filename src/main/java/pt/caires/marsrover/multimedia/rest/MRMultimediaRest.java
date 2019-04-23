@@ -8,7 +8,7 @@ import pt.caires.marsrover.multimedia.domain.MRMultimediaType;
 
 @Data
 @ApiModel(
-    value = "MRMultimediat",
+    value = "MRMultimedia",
     description = "A Multimedia object on the Mars Rover API."
 )
 public class MRMultimediaRest

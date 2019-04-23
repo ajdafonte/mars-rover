@@ -59,6 +59,5 @@ class MRMultimediaRestTest
 
         // then
         assertEquals(expected, result);
-
     }
 }

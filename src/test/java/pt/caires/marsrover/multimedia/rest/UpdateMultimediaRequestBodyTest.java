@@ -58,6 +58,5 @@ class UpdateMultimediaRequestBodyTest
 
         // then
         assertEquals(expected, result);
-
     }
 }

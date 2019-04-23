@@ -61,6 +61,5 @@ class UpdateMultimediaParameterTest
 
         // then
         assertEquals(expected, result);
-
     }
 }

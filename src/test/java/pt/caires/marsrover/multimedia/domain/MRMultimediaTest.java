@@ -16,7 +16,7 @@ class MRMultimediaTest
 {
     // equals nok
     @Test
-    void givenTwoMultimedia_whenCheckIfEquals_thenBothMultimediaMustNotBeEquals()
+    void givenTwoMultimediaItems_whenCheckIfEquals_thenBothMultimediaItemsMustNotBeEquals()
     {
         // given
         final MRMultimedia mockMultimedia1 = MultimediaTestHelper.generateMultimedia(MOCK_TYPE_PHOTO, MOCK_TITLE1);
@@ -29,7 +29,7 @@ class MRMultimediaTest
 
     // toString
     @Test
-    void givenMultimedia_whenCallToString_thenReturnExpectedValue()
+    void givenMultimediaItem_whenCallToString_thenReturnExpectedValue()
     {
         // given
         final MRMultimedia mockMultimedia =

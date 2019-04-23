@@ -58,6 +58,5 @@ class CreateMultimediaParameterTest
 
         // then
         assertEquals(expected, result);
-
     }
 }
