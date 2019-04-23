@@ -22,7 +22,7 @@ Execute the following gradle task:
 gradlew.bat build
 ```
 
-### Running the tests (only)
+### Running the tests
 
 Execute the following gradle task:
 ```
@@ -65,7 +65,7 @@ In file `application.yml` some properties were defined that allows to:
 
 #### Available endpoints
 
-For more details about these endpoints (input and output data) open http://localhost:<port>/swagger-ui.html. 
+For more details about these endpoints (input and output data) open http://localhost:8080/swagger-ui.html. 
 Here's a short summary:
 
 #### Movements
@@ -73,7 +73,7 @@ Here's a short summary:
 - `GET /movements` - Retrieve all the movements made by the Mars Rover.
 - `GET /movements/{id}` - Retrieve a movement made by the Mars Rover specified by the ID.
 - `POST /movements` - Create a new movement of the Mars Rover.
-    - Input data: coordinates (latitude and longitude)
+    - Input data: a geographical coordinate (latitude and longitude)
     - Constraints: 
         - Latitude should be in range [-90;90]
         - Longitude should be in range [0;360]
@@ -88,7 +88,7 @@ With these endpoints is possible to manage the movements of the Mars Rover.
     - Input data: text of the message and the dialect by which the message should be transmitted. 
     - Constraints: Available dialects (UK, USA, JAMAICA; AUSTRALIA)
 
-With this endpoints is possible access/transmit messages of/for the Mars Rover.
+With these endpoints is possible access/transmit messages of/for the Mars Rover.
 
 #### Multimedia
 
@@ -97,12 +97,12 @@ With this endpoints is possible access/transmit messages of/for the Mars Rover.
     - Input data: the multimedia type to be created.
     - Constraints: Available multimedia type (VIDEO, PHOTO)
 - `PATCH /multimedia/{id}` - Update the title of a multimedia item in the Mars Rover specified by the ID.
-    - Input data: the new multimedia title.
+    - Input data: the new multimedia item title.
 - `DELETE /multimedia/{id}` - Delete a multimedia item in the Mars Rover specified by the ID.
 
-With this endpoints is possible to manage multimedia items in the Mars Rover.
+With these endpoints is possible to manage multimedia items in the Mars Rover.
 
 
 ### Additional Remarks
 
-- A dummy in-memory storage was used during the development of this API (no database of any kind was used, like MySQL, H2, etc). 
+- A dummy in-memory storage was used during the development of this API (no database was used). 
