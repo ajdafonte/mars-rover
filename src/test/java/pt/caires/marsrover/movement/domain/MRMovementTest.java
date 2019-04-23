@@ -16,7 +16,7 @@ class MRMovementTest
 {
     // equals nok
     @Test
-    void givenTwoMovements_whenCheckIfEquals_thenBothGeoMovementsMustNotBeEquals()
+    void givenTwoMovements_whenCheckIfEquals_thenBothMovementsMustNotBeEquals()
     {
         // given
         final MRMovement mockMovement1 =

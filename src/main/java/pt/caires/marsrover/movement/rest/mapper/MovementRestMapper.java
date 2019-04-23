@@ -18,6 +18,15 @@ public class MovementRestMapper
         return null;
     }
 
+    public static GeoCoordinate makeGeoCoordinate(final GeoCoordinateRest coordinateRest)
+    {
+        if (coordinateRest != null)
+        {
+            return new GeoCoordinate(coordinateRest.getLatitude(), coordinateRest.getLongitude());
+        }
+        return null;
+    }
+
     private static GeoCoordinateRest makeGeoCoordinateRest(final GeoCoordinate geoCoordinate)
     {
         if (geoCoordinate != null)
@@ -28,25 +37,6 @@ public class MovementRestMapper
             return geoCoordinateRest;
         }
 
-        return null;
-    }
-
-//    public static CreateMovementParameter makeMovementParameter(final GeoCoordinateRest coordinateRest)
-//    {
-//        if (coordinateRest != null)
-//        {
-//            return new CreateMovementParameter(makeGeoCoordinate(coordinateRest));
-//        }
-//
-//        return null;
-//    }
-
-    public static GeoCoordinate makeGeoCoordinate(final GeoCoordinateRest coordinateRest)
-    {
-        if (coordinateRest != null)
-        {
-            return new GeoCoordinate(coordinateRest.getLatitude(), coordinateRest.getLongitude());
-        }
         return null;
     }
 }

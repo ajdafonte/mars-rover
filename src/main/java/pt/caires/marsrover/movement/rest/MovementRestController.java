@@ -31,7 +31,7 @@ import pt.caires.marsrover.movement.rest.mapper.MovementRestMapper;
 @RequestMapping(value = "/v1/movements", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Api(
     tags = "Movements",
-    value = "Resources for accessing and creating movements of the Mars Rover."
+    value = "Resources for accessing and creating movements made by the Mars Rover."
 )
 public class MovementRestController
 {

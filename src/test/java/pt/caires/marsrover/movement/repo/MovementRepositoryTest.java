@@ -47,7 +47,7 @@ class MovementRepositoryTest
 
     // find all - existent movements
     @Test
-    void givenExistentMovements_whenFindAll_thenReturnMovementsCollection()
+    void givenExistentMovements_whenFindAll_thenReturnMovementCollection()
     {
         // given
         final GeoCoordinate mockGeoCoordinate1 = MovementTestHelper.generateGeoCoordinate(MOCK_LATITUDE1, MOCK_LONGITUDE1);
@@ -85,7 +85,7 @@ class MovementRepositoryTest
 
     // find by - not found
     @Test
-    void givenUnknownMovementId_whenFindById_thenEmptyValue()
+    void givenUnknownMovementId_whenFindById_thenReturnEmptyValue()
     {
         // given
         final GeoCoordinate mockGeoCoordinate1 = MovementTestHelper.generateGeoCoordinate(MOCK_LATITUDE1, MOCK_LONGITUDE1);
@@ -102,7 +102,7 @@ class MovementRepositoryTest
 
     // save
     @Test
-    void givenMovement_whenSave_thenReturnSavedMovement()
+    void givenMovement_whenSaveMovement_thenReturnSavedMovement()
     {
         // given
         final GeoCoordinate mockGeoCoordinate1 = MovementTestHelper.generateGeoCoordinate(MOCK_LATITUDE1, MOCK_LONGITUDE1);

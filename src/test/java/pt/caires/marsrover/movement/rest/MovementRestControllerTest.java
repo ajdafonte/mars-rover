@@ -140,10 +140,10 @@ class MovementRestControllerTest
     void givenInvalidId_whenGetMovement_thenReturnBadRequest() throws Exception
     {
         // given
-        final String unknownCustomerId = "lol";
+        final String unknownMovementId = "lol";
 
         // then
-        final ResultActions result = mvc.perform(get(MOVEMENT_BY_ID_URI, unknownCustomerId)
+        final ResultActions result = mvc.perform(get(MOVEMENT_BY_ID_URI, unknownMovementId)
             .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 
         // then
@@ -157,19 +157,19 @@ class MovementRestControllerTest
     void givenUnknownId_whenGetMovement_thenReturnNotFound() throws Exception
     {
         // given
-        final long unknownCustomerId = MovementTestHelper.MOCK_UNKNOWN_ID;
+        final long unknownMovementId = MovementTestHelper.MOCK_UNKNOWN_ID;
         doThrow(new MarsRoverApiException(MarsRoverApiError.UNKNOWN_RESOURCE, "Entity was not found."))
             .when(movementService)
-            .getMovement(unknownCustomerId);
+            .getMovement(unknownMovementId);
 
         // then
-        final ResultActions result = mvc.perform(get(MOVEMENT_BY_ID_URI, unknownCustomerId)
+        final ResultActions result = mvc.perform(get(MOVEMENT_BY_ID_URI, unknownMovementId)
             .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 
         // then
         result.andExpect(MockMvcResultMatchers.status().isNotFound());
         result.andExpect(MockMvcResultMatchers.content().string(CoreMatchers.containsString(RESOURCE_NOT_FOUND)));
-        verify(movementService, times(1)).getMovement(unknownCustomerId);
+        verify(movementService, times(1)).getMovement(unknownMovementId);
         verifyNoMoreInteractions(movementService);
     }
 
@@ -221,7 +221,7 @@ class MovementRestControllerTest
 
     // create movement - invalid body (body with missing values)
     @Test
-    void givenIncompleteRequestBody_whenInsertNewCustomer_thenReturnBadRequest() throws Exception
+    void givenIncompleteRequestBody_whenCreateMovement_thenReturnBadRequest() throws Exception
     {
         // given
         final GeoCoordinateRest mocGeoCoordinateRest = MovementTestHelper.generateGeoCoordinateRest(MOCK_LATITUDE1, null);
@@ -240,7 +240,7 @@ class MovementRestControllerTest
 
     // create movement - body with invalid value - semantics
     @Test
-    void givenRequestBodyWithInvalidValues_whenInsertNewCustomer_thenReturnBadRequest() throws Exception
+    void givenRequestBodyWithInvalidValues_whenCreateMovement_thenReturnBadRequest() throws Exception
     {
         // given
         final GeoCoordinateRest mocGeoCoordinateRest = MovementTestHelper.generateGeoCoordinateRest(MOCK_INVALID_LATITUDE, MOCK_INVALID_LONGITUDE);

@@ -39,6 +39,6 @@ public class DefaultMovementService implements MovementService
     public MRMovement getMovement(final long movementId)
     {
         return movementRepository.findById(movementId).orElseThrow(() -> new MarsRoverApiException(MarsRoverApiError.UNKNOWN_RESOURCE,
-            "Message was not found."));
+            "Movement item was not found."));
     }
 }

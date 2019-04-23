@@ -135,10 +135,10 @@ class MessageRestControllerTest
     void givenInvalidId_whenGetMessage_thenReturnBadRequest() throws Exception
     {
         // given
-        final String unknownCustomerId = "lol";
+        final String unknownMessageId = "lol";
 
         // then
-        final ResultActions result = mvc.perform(get(MESSAGE_BY_ID_URI, unknownCustomerId)
+        final ResultActions result = mvc.perform(get(MESSAGE_BY_ID_URI, unknownMessageId)
             .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 
         // then
@@ -152,19 +152,19 @@ class MessageRestControllerTest
     void givenUnknownId_whenGetMessage_thenReturnNotFound() throws Exception
     {
         // given
-        final long unknownCustomerId = MessageTestHelper.MOCK_UNKNOWN_ID;
+        final long unknownMessageId = MessageTestHelper.MOCK_UNKNOWN_ID;
         doThrow(new MarsRoverApiException(MarsRoverApiError.UNKNOWN_RESOURCE, "Entity was not found."))
             .when(messageService)
-            .getMessage(unknownCustomerId);
+            .getMessage(unknownMessageId);
 
         // then
-        final ResultActions result = mvc.perform(get(MESSAGE_BY_ID_URI, unknownCustomerId)
+        final ResultActions result = mvc.perform(get(MESSAGE_BY_ID_URI, unknownMessageId)
             .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 
         // then
         result.andExpect(MockMvcResultMatchers.status().isNotFound());
         result.andExpect(MockMvcResultMatchers.content().string(CoreMatchers.containsString(RESOURCE_NOT_FOUND)));
-        verify(messageService, times(1)).getMessage(unknownCustomerId);
+        verify(messageService, times(1)).getMessage(unknownMessageId);
         verifyNoMoreInteractions(messageService);
     }
 

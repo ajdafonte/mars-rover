@@ -63,6 +63,5 @@ class MRMovementRestTest
 
         // then
         assertEquals(expected, result);
-
     }
 }

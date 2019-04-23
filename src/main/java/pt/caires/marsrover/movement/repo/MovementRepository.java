@@ -9,19 +9,25 @@ import pt.caires.marsrover.movement.domain.MRMovement;
 public interface MovementRepository
 {
     /**
-     * @return
+     * Returns all the movements made by the Mars Rover.
+     *
+     * @return a list with all the movements.
      */
     List<MRMovement> findAll();
 
     /**
-     * @param movement
-     * @return
+     * Saves a movement item.
+     *
+     * @param movement a movement item.
+     * @return the saved movement item.
      */
     MRMovement save(MRMovement movement);
 
     /**
-     * @param id
-     * @return
+     * Return a movement item identified by its ID.
+     *
+     * @param id the id of the movement.
+     * @return a movement item if found, otherwise an empty value.
      */
     Optional<MRMovement> findById(long id);
 }

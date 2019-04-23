@@ -56,6 +56,5 @@ class GeoCoordinateTest
 
         // then
         assertEquals(expected, result);
-
     }
 }

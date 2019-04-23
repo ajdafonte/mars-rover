@@ -19,8 +19,6 @@ public class MovementTestHelper
     public static final BigDecimal MOCK_LONGITUDE1 = new BigDecimal(40);
     public static final BigDecimal MOCK_LONGITUDE2 = new BigDecimal(80);
     public static final BigDecimal MOCK_INVALID_LONGITUDE = new BigDecimal(400);
-    public static final GeoCoordinate MOCK_COORDINATE1 = MovementTestHelper.generateGeoCoordinate(MOCK_LATITUDE1, MOCK_LONGITUDE1);
-    public static final GeoCoordinate MOCK_COORDINATE2 = MovementTestHelper.generateGeoCoordinate(MOCK_LATITUDE2, MOCK_LONGITUDE2);
 
     public static GeoCoordinate generateGeoCoordinate(final BigDecimal latitude, final BigDecimal longitude)
     {
@@ -44,9 +42,4 @@ public class MovementTestHelper
     {
         return new MRMovementRest(id, coordinateRest);
     }
-
-//    public static CreateMovementParameter generateCreateMovementParameter(final GeoCoordinate coordinate)
-//    {
-//        return new CreateMovementParameter(coordinate);
-//    }
 }
